@@ -1,1 +1,33 @@
-
+name: Kits
+version: 1.0.0
+api: [3.0.0]
+main: Kits\Main
+commands:
+  kits:
+    usage: /kits <list>
+    description: Shows the player a list of kits that they can use
+    permission: kits.command.list
+permissions:
+  kits:
+    default: false
+    description: Allows the player to use all of the Kits features
+    children:
+      kits.command:
+        default: false
+        description: Allows the player to use all of the Kits commands
+        children:
+          kits.command.list:
+            default: true
+            description: Allows the player to use the list command
+          kits.command.create:
+            default: op
+            description: Allows the player to make a new kit
+          kits.command.delete:
+            default: op
+            description: Allows the player to delete kits
+          kits.command.add:
+            default: op
+            description: Allows the player to add players to kits lists
+          kits.command.remove:
+            default: op
+            description: Allows the player to remove players from kits lists
