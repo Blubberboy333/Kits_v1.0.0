@@ -16,6 +16,7 @@ class Main extends PluginBase {
 			@mkdir($this->getDataFolder()."Kits/");
 			$this->getLogger()->info(TextFormat::YELOW . "Made directory for kits...");
 		}
+		$this->saveDefaultConfig();
 	}
 	
 	public function onDisable(){
