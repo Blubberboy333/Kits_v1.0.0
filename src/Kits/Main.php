@@ -12,9 +12,18 @@ use pocketmine\plugin\PluginBase as Base;
 
 class Main extends PluginBase {
 	public function onEnable(){
+		// [0] = chest, [1] = legs, [2] = weapon
+		$this->default = array($this->getConfig()->get("DefaultChest"), $this->getConfig()->get("DefaultLegs"), $this->getConfig()->get("DefaultWeapon"));
 		if(!(is_dir($this->getDataFolder()."Kits/"))){
 			@mkdir($this->getDataFolder()."Kits/");
 			$this->getLogger()->info(TextFormat::YELOW . "Made directory for kits...");
+		}
+		if(!(file_exists($this->getDataFolder()."Kits/"."Default.yml")){
+			$file = new Config($this->getDataFolder()."Kits/"."Defauly.yml", Config::YAML);
+			$file->set("Chest", $this->default[0]);
+			$file->set("Legs", $this->default[1]);
+			$file->set("Weapon", $this->default[2]);
+			$file->save();
 		}
 		$this->saveDefaultConfig();
 	}
@@ -39,11 +48,15 @@ class Main extends PluginBase {
 	}
 	
 	public function makeKit($name){
-		
+		$file = new Config($this->getDataFolder()."Kits/".$name.".yml", Config::YAML);
+		$file->set("Chest", $this->default[0]);
+		$file->set("Legs", $this->default[1]);
+		$file->set("Weapon", $this->default[2]);
+		$file->save();
 	}
 			   
 	public function delKit($name){
-		
+	
 	}
 			   
 	public function addPlayer($player, $kit){
