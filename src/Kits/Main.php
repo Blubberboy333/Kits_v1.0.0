@@ -52,15 +52,19 @@ class Main extends PluginBase {
 		$file->set("Chest", $this->default[0]);
 		$file->set("Legs", $this->default[1]);
 		$file->set("Weapon", $this->default[2]);
+		$file->set("Players", array());
 		$file->save();
 	}
 			   
 	public function delKit($name){
-	
+		unlink($this->getDataFolder()."Kits/".$name.".yml");
+		$this->getLogger()->info(TextFormat::YELLOW."Kit ".$name." was deleted");
 	}
 			   
 	public function addPlayer($player, $kit){
-		
+		if(!($kit == strtolower("--all"))){
+			
+		}
 	}
 	
 	public function delPlayer($player, $kit){
