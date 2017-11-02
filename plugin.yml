@@ -1,7 +1,8 @@
 name: Kits
-version: 1.0.0
+author: BlubberBoy333
 api: [3.0.0]
 main: Kits\Main
+version: 1.0.0
 commands:
   kits:
     usage: /kits <list>
