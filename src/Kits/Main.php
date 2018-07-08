@@ -19,7 +19,7 @@ class Main extends PluginBase {
 			$this->getLogger()->info(TextFormat::YELOW . "Made directory for kits...");
 		}
 		if(!(file_exists($this->getDataFolder()."Kits/"."Default.yml")){
-			$file = new Config($this->getDataFolder()."Kits/"."Defauly.yml", Config::YAML);
+			$file = new Config($this->getDataFolder()."Kits/"."Default.yml", Config::YAML);
 			$file->set("Chest", $this->default[0]);
 			$file->set("Legs", $this->default[1]);
 			$file->set("Weapon", $this->default[2]);
